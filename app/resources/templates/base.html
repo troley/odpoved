@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <title>
+      AI Vyh&lcaron;ad&aacute;va&ccaron; - {% block title %}{% endblock %}
+    </title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ url_for('static', path='/favicon.ico')}}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% endblock %}
+  </head>
+  <body>
+    {% include "partials/navbar.html" %}
+    <div class="container mx-auto">{% block main %}{% endblock %}</div>
+  </body>
+</html>

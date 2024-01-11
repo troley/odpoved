@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Upload s&uacute;borov{% endblock %}
+{% block head %} {{ super() }}
+<link href="{{ url_for('static', path='/css/loader.css')}}" rel="stylesheet" />
+{% endblock %} {% block main %}
+<div class="flex justify-center">
+  <div class="lg:w-1/3 w-full text-center">
+    <h1 class="my-8">Uploadni s&uacute;bor</h1>
+    <form id="fileUploadForm">
+      <input
+        id="fileToUpload"
+        type="file"
+        name="file_upload"
+        class="file-input file-input-bordered w-full mb-4"
+      />
+      <div id="loader"></div>
+      <button class="btn btn-info btn-outline" type="submit">
+        Odosla&tcaron;
+      </button>
+    </form>
+  </div>
+</div>
+<script
+  type="module"
+  src="{{ url_for('static', path='/js/file-upload.js')}}"
+></script>
+{% endblock %}

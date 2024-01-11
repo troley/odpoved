@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}Domov {%endblock %} {% block head %}
+{{ super() }}
+<link href="{{ url_for('static', path='/css/loader.css')}}" rel="stylesheet" />
+{% endblock %} {% block main %}
+<div class="flex justify-center">
+  <div class="lg:w-1/3 w-full text-center">
+    <h1 class="my-8 text-4xl">Vyh&lcaron;ad&aacute;va&ccaron;</h1>
+    {% if files %}
+    <form id="questionForm">
+      <div class="join w-full">
+        <input
+          id="userQuery"
+          type="text"
+          name="user_query"
+          placeholder="Pýtajte sa"
+          class="input input-bordered w-full join-item"
+        />
+        <button
+          class="btn btn-info btn-outline join-item rounded-lg"
+          type="submit"
+        >
+          Odosla&tcaron;
+        </button>
+      </div>
+    </form>
+    <div id="answerToQuestion"></div>
+    <h3 class="my-4 text-xl">Vyh&lcaron;ad&aacute;vam v s&uacute;boroch:</h3>
+    <ul>
+      {% for file in files %}
+      <li>{{ file.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <a class="link" href="/file_upload">
+      Pridajte najprv minim&aacute;lne jeden s&uacute;bor v ktorom
+      m&ocirc;&zcaron;em vyh&lcaron;ad&aacute;va&tcaron;
+    </a>
+    {% endif %}
+  </div>
+</div>
+<script
+  type="module"
+  src="{{ url_for('static', path='/js/question.js')}}"
+></script>
+{% endblock %}
